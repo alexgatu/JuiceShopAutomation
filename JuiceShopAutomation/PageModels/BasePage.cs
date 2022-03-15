@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NUnit_Auto_2022.PageModels.POM
+namespace JuiceShopAutomation.PageModels.POM
 {
     public class BasePage
     {

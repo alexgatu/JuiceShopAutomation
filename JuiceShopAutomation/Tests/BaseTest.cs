@@ -20,7 +20,10 @@ namespace JuiceShopAutomation.Tests
         public static ExtentReports _extent;
         public ExtentTest _test;
         public string testName;
-        
+
+        protected string loginUrlPath = "login";
+        protected string registrationUrlPath = "register";
+
         [OneTimeSetUp]
         protected void ExtentStart()
         {
