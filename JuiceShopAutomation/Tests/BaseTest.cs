@@ -21,8 +21,8 @@ namespace JuiceShopAutomation.Tests
         public ExtentTest _test;
         public string testName;
 
-        protected string loginUrlPath = "login";
-        protected string registrationUrlPath = "register";
+        protected static string loginUrlPath = "login";
+        protected static string registrationUrlPath = "register";
 
         [OneTimeSetUp]
         protected void ExtentStart()

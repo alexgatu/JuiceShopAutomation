@@ -12,6 +12,7 @@ namespace JuiceShopAutomation.PageModels
         const string acceptCookiesSelector = "cc-dismiss"; // class
         const string loginButtonSelector = "#navbarAccount > span.mat-button-wrapper > span"; // css
         const string loginButtonExpandedSelector = "#navbarLoginButton > span"; // css
+        const string reloadPageSelector = "mat-button-wrapper"; // css
 
         public MainPage(IWebDriver driver) : base(driver)
         {
@@ -22,6 +23,7 @@ namespace JuiceShopAutomation.PageModels
         {
             driver.FindElement(By.XPath(closeOpenBannerSelector)).Click();
             driver.FindElement(By.ClassName(acceptCookiesSelector)).Click();
+            //driver.FindElement(By.ClassName(reloadPageSelector)).Click();
         }
 
         public void MoveToLoginPage()

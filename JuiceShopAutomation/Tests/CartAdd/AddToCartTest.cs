@@ -1,14 +1,13 @@
-﻿using NUnit.Framework;
-using JuiceShopAutomation.Tests;
-using JuiceShopAutomation.Utilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using JuiceShopAutomation.PageModels;
+using JuiceShopAutomation.Utilities;
+using NUnit.Framework;
 
-namespace JuiceShopAutomation.Tests.Authentication
+namespace JuiceShopAutomation.Tests.CartAdd
 {
-    public class AuthenticationTests : BaseTest
+    class AddToCartTest : BaseTest
     {
 
         string url = FrameworkConstants.GetUrl();
@@ -22,7 +21,7 @@ namespace JuiceShopAutomation.Tests.Authentication
         }
 
         [Test, TestCaseSource("GetCredentialsDataCsv")]
-        public void AuthenticationPositive(string email, string pass, string questionId, string answer)
+        public void AddToCart(string email, string pass, string questionId, string answer)
         {
             testName = TestContext.CurrentContext.Test.Name;
             _test = _extent.CreateTest(testName);
@@ -34,8 +33,11 @@ namespace JuiceShopAutomation.Tests.Authentication
             LoginPage lp = new LoginPage(_driver);
             Assert.IsTrue(lp.CheckLoginLabel("Login"));
             lp.Login(email, pass);
+
+            SearchPage sp = new SearchPage(_driver);
+            Assert.IsTrue(sp.CheckSearchLabel("All Products"));
+            sp.AddToCart(0);
+
         }
-
-
     }
 }

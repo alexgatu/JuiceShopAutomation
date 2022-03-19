@@ -24,6 +24,12 @@ namespace JuiceShopAutomation
             return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(locator));
         }
 
+        public static IWebElement WaitForElementClickable(IWebDriver driver, int seconds, By locator)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
+            return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(locator));
+        }
+
         public static IWebElement WaitForFluentElement(IWebDriver driver, int seconds, By locator)
         {
             DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(driver)
@@ -278,6 +284,18 @@ namespace JuiceShopAutomation
                 dictionaryList.Add(queryParams);
             }
             return dictionaryList;
+        }
+
+        public static string GenerateRandomStringCount(int count)
+        {
+            const string chars = "abcdefghijklmnopqrstuvwxyz1234567890";
+            StringBuilder sb = new StringBuilder();
+            for (int i =0; i< count; i++)
+            {
+                Random r = new Random();
+                sb.Append(chars[r.Next(chars.Length)]);
+            }
+            return sb.ToString();
         }
 
     }
